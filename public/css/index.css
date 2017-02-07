@@ -1,0 +1,60 @@
+ /*清除外边距*/
+body{
+    margin: 0;
+}
+/*页眉*/
+.top_banner{
+    width : 100%;
+    height: 50px;
+    
+}
+.logo{
+    width: 200px;
+    height: 100%;
+    float: left;
+    margin-left: 300px; 
+}
+.login{
+    width: 200px;
+    height: 100%;
+    float: right;
+    margin-right: 300px;
+}
+.main{
+    background-image: url(../image/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+    /*主体*/
+.content{
+   
+    float : left;
+}
+.inner{
+    margin-left : 180px;
+    margin-right : 180px;
+    height : 100%;
+ 
+}
+.left{ 
+    height : 100%;
+ 
+    float: left; 
+    margin-left: -102%;
+}
+.right{ 
+    height : 100%;
+ 
+    float : right;
+    margin-left: -17%;
+}
+.footer{
+    background-color: lightsteelblue;
+}
+.top-height{
+    margin-top: 300px;
+}
+
+.well{
+    line-height: 2em;
+}

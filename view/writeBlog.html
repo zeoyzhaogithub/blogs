@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <?php include_once("../inc/header.php");?>
+
+    <link rel="stylesheet" type="text/css" href="../public/simditor/styles/simditor.css" />
+
+    <script type="text/javascript" src="../public/simditor/scripts/module.js"></script>
+    <script type="text/javascript" src="../public/simditor/scripts//hotkeys.js"></script>
+    <script type="text/javascript" src="../public/simditor/scripts/uploader.js"></script>
+    <script type="text/javascript" src="../public/simditor/scripts/simditor.js"></script>
+
+    <!--<script type="text/javascript" src="../public/js/simditor.js"></script>-->
+</head>
+<body>
+
+<?php include_once("../inc/nav.php");?>
+
+<!--写博客-->
+
+<div class="container">
+    <div class="page-header">
+        <h1>
+           写博客
+           <small class="pull-right">
+               <a href="blogs.php" class="btn btn-primary">
+                   <span class="glyphicon glyphicon-chevron-right"></span> 返回
+               </a>
+           </small>
+        </h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" role="form" action="writeBlog.php?do=save" method="post">
+            <input type="hidden" name="b_id" value="<?php echo $b_id?>"/>
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">标&emsp;&emsp;题</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" name="title" placeholder="请输入标题" value = "<?php echo $blog_filesItem['title']?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="author" class="col-sm-2 control-label">作&emsp;&emsp;者</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="author" name="author" placeholder="请输入作者" value="<?php echo $blog_filesItem['author']?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type" class="col-sm-2 control-label">文章类型</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="type">
+                        <option >
+                            <?php 
+                                if(!$blog_filesItem['type']){
+                                    echo "请选择";
+                                }else{
+                                    echo $blog_filesItem['type'];
+                                }
+                            ?>
+                        </option>
+                        <option id="type" >原创</option>
+                        <option id="type" >转载</option>
+                        <option id="type" >翻译</option>
+                    </select>      
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="content" class="col-sm-2 control-label">正&emsp;&emsp;文</label>
+                <div class="col-sm-10">
+                    <textarea 
+                        id = "content" name = "content">
+                        <!--<?php echo htmlspecialchars_decode($blog_filesItem['content'])?>-->
+                        <?php echo htmlspecialchars($blog_filesItem['content'])?>
+                    </textarea>
+                    <script>
+                         var editor = new Simditor({
+                            textarea: $('#content'),
+                            upload: {
+                                url: '<?php echo "upload.php"?>',
+                                fileKey:'file1'
+                            },
+                            placeholder:"请输入正文",
+                            toolbar:[
+                                'title',
+                                'bold',
+                                'italic',
+                                'underline',
+                                'strikethrough',
+                                'fontScale',
+                                'color',
+                                'ol',           
+                                'ul' ,          
+                                'blockquote',
+                                'code' ,         
+                                'table',
+                                'link',
+                                'image',
+                                'hr',            
+                                'indent',
+                                'outdent',
+                                'alignment'
+                            ]
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type = "submit" class="btn btn-default" value="提 交"> 
+                </div>
+            </div>
+        </form>
+    </div>       
+</div> 
+</body>
+</html>

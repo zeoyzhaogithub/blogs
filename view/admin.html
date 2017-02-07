@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <?php include_once("../inc/header.php");?>
+</head>
+<body>
+<?php include_once("../inc/nav.php");?>
+
+<!--显示所有的管理员，并对管理员进行管理-->
+
+<div class="container">
+    <div class="page-header">
+        <h1>
+           管理员管理
+           <small class="pull-right">
+               <a href="adminAdd.php" class="btn btn-primary">
+                   <span class="glyphicon glyphicon-plus"></span> 添加
+               </a>
+           </small>
+        </h1>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ad_id</th>
+                    <th>ad_name</th>
+                    <th>管理功能</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($userList as $item):?>
+                    <tr>
+                        <td><?php echo $item['ad_id']?></td>
+                        <td><?php echo $item['ad_name']?></td>
+                        <td>
+                            <a 
+                                href = "adminAdd.php?ad_id=<?php echo $item['ad_id']?>" 
+                                class="btn btn-primary btn-xs">
+                                编辑
+                            </a>
+                            <?php if($user['ad_name'] != $item['ad_name']):?>
+                                <a 
+                                    href = "admin.php?do=deleteAdmin&ad_id=<?php echo $item['ad_id']?>"
+                                    class="btn btn-danger btn-xs">
+                                    删除
+                                </a>
+                            <?php endif;?>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

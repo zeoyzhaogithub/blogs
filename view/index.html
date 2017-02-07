@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>博客首页--<?php echo con('web_name')?></title>
+    <basefont face="微软雅黑" size = 2/>
+
+    <link rel="stylesheet" href="public/css/index.css"  type="text/css"/>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="public/css/bootstrap-theme.min.css" type="text/css">  
+    
+    <script src="public/js/jquery-3.1.1.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--系统主页-->
+
+<div class="main">
+    <div class="container">
+        <div>
+            <?php include_once("inc/top_bar.php")?>;
+        </div>   
+        <div>
+            <?php include_once("inc/fontHeader.php")?>;
+        </div>
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+            </ol>
+            <div class="content col-md-12">
+                <div class = "inner">
+                    <?php foreach($articles as $article):?>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                 <a href="article.php?b_id=<?php echo $article['b_id']?>">
+                                     <span class="glyphicon glyphicon-superscript"> </span>
+                                     <?php echo $article['title'];?>
+                                </a>
+                            </div>
+                            <div class="panel-body">
+                               <?php echo mb_substr(strip_tags($article['content']),0,150)?>
+                                ......
+                            </div>
+                        </div>
+                    <?php endforeach;?>
+                </div>
+            </div>
+            <div class="left col-md-2">
+                <?php include_once("inc/leftSide.php")?>
+            </div>
+            <div class="right col-md-2">
+                <?php include_once("inc/rightSide.php")?>
+            </div>
+        </div>
+        <nav class="pull-right">
+            <ul class="pagination">     
+                <?php echo $pages->showpage()?>    
+            </ul>
+        </nav>
+        <div class="text-right col-md-12">
+            <?php include_once("inc/footer.php")?>	
+        </div>   
+    </div>
+</div>
+
+</body>
+</html>

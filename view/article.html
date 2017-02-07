@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>博客首页--<?php echo con('web_name')?></title>
+    <basefont face="微软雅黑" size = 2/>
+
+    <link rel="stylesheet" href="public/css/index.css"  type="text/css"/>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="public/css/bootstrap-theme.min.css" type="text/css">  
+    
+    <script src="public/js/jquery-3.1.1.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--博文详情页-->
+
+<div class="main">
+    <div class="container">
+        <div>
+            <?php include_once("inc/top_bar.php")?>;
+        </div>    
+        <div>
+            <?php include_once("inc/fontHeader.php")?>;
+        </div>
+        <div class="col-md-12">
+             <ol class="breadcrumb">
+                <li><a href="index.php">首页</a></li>
+                <li><a href="#"><?php echo$article['title'];?> </a></li>
+            </ol>
+            <div class="content col-md-12">
+                <div class = "inner">
+                    
+                            <div class="page-header">
+                                <h1>
+                                    <?php echo $article['title'];?><br> 
+                                    <small class="pull-right" style="font-size: 16px;">
+                                        作者:<?php echo $article['author'];?>
+                                        <?php echo date("Y-m-d",$article['uptime']);?>
+                                    </small>
+                                </h1>
+
+                        <div class="well">
+                            <?php echo $article['content'];?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="left col-md-2">
+                <?php include_once("inc/leftSide.php")?>
+            </div>
+            <div class="right col-md-2">
+                <?php include_once("inc/rightSide.php")?>
+            </div>
+        </div>
+        <div class="text-right col-md-12">
+            <?php include_once("inc/footer.php")?>	
+        </div>   
+    </div>
+</div>
+</body>
+</html>

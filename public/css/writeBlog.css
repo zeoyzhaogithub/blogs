@@ -1,0 +1,42 @@
+ /*清除外边距*/
+body{
+    margin: 0;
+}
+/*页眉*/
+.top_banner{
+    width : 100%;
+    height: 50px;
+    background-color: pink;
+}
+.logo{
+    width: 200px;
+    height: 100%;
+    float: left;
+    margin-left: 300px; 
+}
+.login{
+    width: 200px;
+    height: 100%;
+    float: right;
+    margin-right: 300px;
+}
+.wrapper{
+    margin : 0 auto;
+    background-color:green;
+    width : 1200px;
+    height : 1200px;    
+} 
+.header{
+    width : 1200px;
+    height: 200px;
+    margin : 0 auto;
+    background-color : yellow;
+}
+.editor{
+    width: 100%;
+}
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: lightsteelblue;
+}
